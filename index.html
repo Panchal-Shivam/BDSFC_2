@@ -34,7 +34,7 @@
   min-width: 160px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 10;
-  top: 100%; /* Align below the nav item */
+  top: 70%; /* Align below the nav item */
 }
 
 .nav-item-dropdown .dropdown-content a {
@@ -391,7 +391,7 @@
     <script src="script.js"></script>
 
     <script>
-      // Mobile menu toggle (open/close)
+    // Menu toggle (open/close) for mobile
 const menuOpenButton = document.getElementById('menu-open-button');
 const menuCloseButton = document.getElementById('menu-close-button');
 const navMenu = document.querySelector('.nav-menu');
@@ -415,18 +415,18 @@ menuCloseButton.addEventListener('click', () => {
 // Toggle dropdown on mobile
 dropdownToggle.addEventListener('click', function(event) {
   event.preventDefault();
-  dropdownMenu.classList.toggle('active'); // Toggle dropdown
+  dropdownMenu.classList.toggle('active');
 });
 
 // Close the entire menu when a submenu link is clicked
 document.querySelectorAll('.dropdown-content a').forEach(link => {
   link.addEventListener('click', () => {
-    navMenu.classList.remove('active'); // Close menu
-    dropdownMenu.classList.remove('active'); // Close dropdown
+    navMenu.classList.remove('active');
     menuOpenButton.style.display = 'block';
     menuCloseButton.style.display = 'none';
   });
 });
+
 
     </script>
 
