@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BDSFC | Loan Assistance</title>
+    <!-- Linking Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <!-- Linking Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+    /* Navbar styles */
+.nav-menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  /* other styles... */
+}
+
+.nav-item {
+  position: relative; /* Position relative for dropdown */
+}
+
+/* Dropdown styles */
+.nav-item-dropdown .dropdown-content {
+  display: none; /* Hide by default */
+  position: absolute; /* Absolute positioning for dropdown */
+  background-color: white; /* Background color of dropdown */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for dropdown */
+  z-index: 10; /* Ensure it appears above other elements */
+  padding: 10px 0; /* Add padding to dropdown */
+  border-radius: 5px; /* Round corners */
+}
+
+.dropdown-content a {
+  display: block; /* Make links block-level for easier clicking */
+  padding: 8px 15px; /* Padding for links */
+  color: #333; /* Text color */
+  text-decoration: none; /* Remove underline */
+}
+
+.dropdown-content a:hover {
+  background-color: #f0f0f0; /* Change background on hover */
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .nav-menu {
+    flex-direction: column; /* Stack items on mobile */
+    display: none; /* Hide by default for mobile */
+  }
+
+  .nav-menu.active {
+    display: flex; /* Show when active */
+  }
+
+  #menu-open-button {
+    display: block; /* Show menu button on mobile */
+  }
+
+  #menu-close-button {
+    display: none; /* Hide close button by default */
+  }
+
+  .nav-item-dropdown .dropdown-content {
+    position: static; /* Position dropdown in normal flow */
+    display: none; /* Hide by default on mobile */
+  }
+
+  .nav-item-dropdown.active .dropdown-content {
+    display: block; /* Show dropdown when active */
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <!-- Header / Navbar -->
+<header>
+  <nav class="navbar">
+    <a href="#" class="nav-logo">
+      <h2 class="logo-text">BDSFC</h2>
+      <p class="comp-name">Baba Deep SinghJi Finance Corporation</p>
+    </a>
+
+    <ul class="nav-menu">
+      <button id="menu-close-button" class="fas fa-times"></button>
+
+      <li class="nav-item">
+        <a href="#home" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="#about" class="nav-link">About</a>
+      </li>
+      <li class="nav-item">
+        <a href="#service" class="nav-link">Services</a>
+      </li>
+
+      <li class="nav-item-dropdown">
+        <a href="#" class="nav-link dropdown-toggle">Resources</a>
+        <div class="dropdown-content">
+          <a href="#blogs">Blogs</a>
+          <a href="#calculator">Calculator</a>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a href="#testimonials" class="nav-link">Testimonials</a>
+      </li>
+      <li class="nav-item">
+        <a href="#contact" class="nav-link">Contact</a>
+      </li>
+    </ul>
+
+    <button id="menu-open-button" class="fas fa-bars"></button>
+  </nav>
+</header>
+
+
+    <main>
+
+
+      <!-- Hero section -->
+<section id="home" class="hero-section">
+  <div class="section-content">
+    <div class="hero-details">
+      <h2 class="title">Your Trusted Partner in Securing Loans!</h2>
+      <h3 class="subtitle">We connect you with the best loan offers from top banks, regardless of your credit history.</h3>
+      <p class="description">Get customized loan solutions, even with low CIBIL scores, all with zero hidden fees!</p>
+
+      <div class="buttons">
+        <a href="#contact" class="button order-now" id="call-button"> Call</a>
+        <a href="#contact" class="button contact-us" id="email-button"> Email</a>
+      </div>
+    </div>
+    <div class="hero-image-wrapper">
+      <img src="assets\hero-section-img.png" alt="Coffee" class="hero-image" />
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- About section -->
+      <section class="about-section" id="about">
+        <div class="section-content">
+          <div class="about-image-wrapper">
+            <img src="images/about-image.jpg" alt="About" class="about-image" />
+          </div>
+          <div class="about-details">
+            <h2 class="section-title">About Us</h2>
+            <p class="text">At Coffee House in Berndorf, Germany, we pride ourselves on being a go-to destination for coffee lovers and conversation seekers alike. We're dedicated to providing an exceptional coffee experience in a cozy and inviting atmosphere, where guests can relax, unwind, and enjoy their time in comfort.</p>
+            <div class="social-link-list">
+              <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+              <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services section -->
+      <section class="service-section" id="service">
+        <h2 class="section-title">Our Services</h2>
+        <div class="section-content">
+            <ul class="service-list">
+                <li class="service-item">
+                    <img src="images/home-loan-icon.png" alt="Home Loan" class="service-image" />
+                    <div class="service-details">
+                        <h3 class="name">Home Loan</h3>
+                        <p class="text">Get easy financing for your dream home with flexible payment options.</p>
+                    </div>
+                </li>
+                <li class="service-item">
+                    <img src="images/personal-loan-icon.png" alt="Personal Loan" class="service-image" />
+                    <div class="service-details">
+                        <h3 class="name">Personal Loan</h3>
+                        <p class="text">Quick personal loans to meet your immediate financial needs.</p>
+                    </div>
+                </li>
+                <li class="service-item">
+                    <img src="images/mortgage-loan-icon.png" alt="Mortgage Loan" class="service-image" />
+                    <div class="service-details">
+                        <h3 class="name">Mortgage Loan</h3>
+                        <p class="text">Secure a mortgage loan with competitive interest rates.</p>
+                    </div>
+                </li>
+                <li class="service-item">
+                    <img src="images/education-loan-icon.png" alt="Education Loan" class="service-image" />
+                    <div class="service-details">
+                        <h3 class="name">Education Loan</h3>
+                        <p class="text">Fund your education and career aspirations with our student loans.</p>
+                    </div>
+                </li>
+                <li class="service-item">
+                    <img src="images/health-insurance-icon.png" alt="Health Insurance" class="service-image" />
+                    <div class="service-details">
+                        <h3 class="name">Health Insurance</h3>
+                        <p class="text">Comprehensive health insurance plans for you and your family.</p>
+                    </div>
+                </li>
+                <li class="service-item">
+                    <img src="images/general-insurance-icon.png" alt="General Insurance" class="service-image" />
+                    <div class="service-details">
+                        <h3 class="name">General Insurance</h3>
+                        <p class="text">Protect your assets with our wide range of general insurance options.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    
+    
+
+      <!-- Testimonials section -->
+      <section class="testimonials-section" id="testimonials">
+        <h2 class="section-title">Testimonials</h2>
+        <div class="section-content">
+          <div class="slider-container swiper">
+            <div class="slider-wrapper">
+              <ul class="testimonials-list swiper-wrapper">
+                <li class="testimonial swiper-slide">
+                  <img src="assets\dummy.png" alt="User" class="user-image" />
+                  <h3 class="name">Sarah Johnson</h3>
+                  <h4 class="name">Home Loan</h4>
+                  <i class="feedback">"Loved the French roast. Perfectly balanced and rich. Will order again!"</i>
+                </li>
+                <li class="testimonial swiper-slide">
+                  <img src="assets\dummy.png" alt="User" class="user-image" />
+                  <h3 class="name">James Wilson</h3>
+                  <h4 class="name">Home Loan</h4>
+                  <i class="feedback">"Great espresso blend! Smooth and bold flavor. Fast shipping too!"</i>
+                </li>
+                <li class="testimonial swiper-slide">
+                  <img src="assets\dummy.png" alt="User" class="user-image" />
+                  <h3 class="name">Michael Brown</h3>
+                  <h4 class="name">Home Loan</h4> 
+                  <i class="feedback">"Fantastic mocha flavor. Fresh and aromatic. Quick shipping!"</i>
+                </li>
+                <li class="testimonial swiper-slide">
+                  <img src="assets\dummy.png" alt="User" class="user-image" />
+                  <h3 class="name">Emily Harris</h3>
+
+                  <i class="feedback">"Excellent quality! Fresh beans and quick delivery. Highly recommend."</i>
+                </li>
+                <li class="testimonial swiper-slide">
+                  <img src="assets\dummy.png" alt="User" class="user-image" />
+                  <h3 class="name">Anthony Thompson</h3>
+
+                  <i class="feedback">"Best decaf I've tried! Smooth and flavorful. Arrived promptly."</i>
+                </li>
+              </ul>
+
+              <div class="swiper-pagination"></div>
+              <div class="swiper-slide-button swiper-button-prev"></div>
+              <div class="swiper-slide-button swiper-button-next"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery section -->
+      <section class="gallery-section" id="gallery">
+        <h2 class="section-title">Gallery</h2>
+        <div class="section-content">
+          <!-- <ul class="gallery-list">
+            <li class="gallery-item">
+              <img src="images/gallery-1.jpg" alt="Gallery Image" class="gallery-image" />
+            </li>
+            <li class="gallery-item">
+              <img src="images/gallery-2.jpg" alt="Gallery Image" class="gallery-image" />
+            </li>
+            <li class="gallery-item">
+              <img src="images/gallery-3.jpg" alt="Gallery Image" class="gallery-image" />
+            </li>
+            <li class="gallery-item">
+              <img src="images/gallery-4.jpg" alt="Gallery Image" class="gallery-image" />
+            </li>
+            <li class="gallery-item">
+              <img src="images/gallery-5.jpg" alt="Gallery Image" class="gallery-image" />
+            </li>
+            <li class="gallery-item">
+              <img src="images/gallery-6.jpg" alt="Gallery Image" class="gallery-image" />
+            </li>
+          </ul> -->
+        </div>
+      </section>
+
+      <!-- Contact section -->
+      <section class="contact-section" id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="section-content">
+          <ul class="contact-info-list">
+            <li class="contact-info">
+              <i class="fa-solid fa-location-crosshairs"></i>
+              <p>123 Campsite Avenue, Wilderness, CA 98765</p>
+            </li>
+            <li class="contact-info">
+              <i class="fa-regular fa-envelope"></i>
+              <p>info@abc.com</p>
+            </li>
+            <li class="contact-info">
+              <i class="fa-solid fa-phone"></i>
+              <p>(123) 456-78909</p>
+            </li>
+          </ul>
+
+          <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+
+            <!-- Hidden input for access key -->
+            <input type="hidden" name="access_key" value="6f204368-333a-4365-b57c-1e3d82ee0b51">
+        
+            <!-- Name field with name attribute -->
+            <input type="text" name="name" placeholder="Your name" class="form-input" required />
+        
+            <!-- Number field with name attribute -->
+            <input type="number" name="phone" placeholder="Your Number" class="form-input"/>
+        
+            <!-- Email field with name attribute -->
+            <input type="email" name="email" placeholder="Your email" class="form-input" required />
+        
+            <!-- Message field with name attribute -->
+            <textarea name="message" placeholder="Your message" class="form-input" required></textarea>
+        
+            <!-- Submit button -->
+            <div class="submit-button-container">
+                <button type="submit" class="button submit-button">Submit</button>
+            </div>
+        
+        </form>
+        
+        </div>
+      </section>
+
+      <!-- Footer section -->
+      <footer class="footer-section">
+        <div class="section-content">
+          <p class="copyright-text">&copy; Baba Deep SinghJi Finance Corporation</p>
+
+          <div class="social-link-list">
+            <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+
+          <!-- <p class="policy-text">
+            <a href="#" class="policy-link">Privacy policy</a>
+            <span class="separator">•</span>
+            <a href="#" class="policy-link">Refund policy</a>
+          </p> -->
+
+          <p class="policy-link"></p>
+
+        </div>
+      </footer>
+    </main>
+
+    <!-- Linking Swiper script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Linking custom script -->
+    <script src="script.js"></script>
+    <script>
+      // Script to handle mobile dropdown
+document.querySelector('.dropdown-toggle').addEventListener('click', function(event) {
+  event.preventDefault(); // Prevent default link behavior
+  const dropdown = this.nextElementSibling; // Get the dropdown content
+  dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block'; // Toggle dropdown
+  this.parentElement.classList.toggle('active'); // Toggle active class on parent
+});
+
+// Close the dropdown when clicking outside
+document.addEventListener('click', function(event) {
+  const dropdowns = document.querySelectorAll('.dropdown-content');
+  dropdowns.forEach(dropdown => {
+    if (!dropdown.parentElement.contains(event.target) && dropdown.style.display === 'block') {
+      dropdown.style.display = 'none'; // Hide dropdown if clicking outside
+      dropdown.parentElement.classList.remove('active'); // Remove active class
+    }
+  });
+});
+
+    </script>
+
+    
+
+  </body>
+</html>
