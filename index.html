@@ -9,61 +9,87 @@
     <!-- Linking Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css" />
+    
     <style>
-      /* Navbar styles */
+      /* Navbar basic styles */
 .nav-menu {
   list-style: none;
   display: flex;
   align-items: center;
-  /* other styles... */
+  padding: 0;
+  margin: 0;
+  transition: all 0.3s ease;
 }
 
 .nav-item {
-  position: relative; /* Position relative for dropdown */
+  position: relative;
+  margin-right: 20px;
 }
 
-/* Dropdown styles */
+/* Dropdown content styles */
 .nav-item-dropdown .dropdown-content {
-  display: none; /* Hide by default */
-  position: absolute; /* Absolute positioning for dropdown */
-  background-color: white; /* Background color of dropdown */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for dropdown */
-  z-index: 10; /* Ensure it appears above other elements */
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  top: 100%; /* Align below the nav item */
 }
 
+.nav-item-dropdown .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background 0.3s ease;
+}
+
+.nav-item-dropdown .dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Show dropdown on hover for desktop */
 .nav-item-dropdown:hover .dropdown-content {
-  display: block; /* Show dropdown on hover */
+  display: block;
 }
 
-/* Responsive Styles */
+/* Mobile-specific styles */
 @media screen and (max-width: 768px) {
   .nav-menu {
-    flex-direction: column; /* Stack items on mobile */
-    display: none; /* Hide by default for mobile */
+    flex-direction: column;
+    align-items: flex-start;
+    display: none;
   }
 
   .nav-menu.active {
-    display: flex; /* Show when active */
+    display: flex;
   }
 
-  #menu-open-button {
-    display: block; /* Show menu button on mobile */
+  #menu-open-button, #menu-close-button {
+    display: block;
   }
 
-  #menu-close-button {
-    display: none; /* Hide close button by default */
-  }
-
+  /* Remove absolute positioning for mobile dropdown */
   .nav-item-dropdown .dropdown-content {
-    position: static; /* Position dropdown in normal flow */
+    position: static;
+    display: none;
+    width: 100%; /* Full width for mobile */
+    background-color: white;
   }
 
-  .nav-item-dropdown:hover .dropdown-content {
-    display: block; /* Show dropdown on tap */
+  .nav-item-dropdown.active .dropdown-content {
+    display: block;
+  }
+
+  .nav-item-dropdown .dropdown-content a {
+    padding: 10px 16px;
+    background-color: #f8f8f8;
   }
 }
 
-    </style>
+  </style>
+
   </head>
   <body>
     <!-- Header / Navbar -->
@@ -365,11 +391,41 @@
     <script src="script.js"></script>
 
     <script>
-      // Script to handle mobile dropdown
-document.querySelector('.dropdown-toggle').addEventListener('click', function(event) {
-  event.preventDefault(); // Prevent default link behavior
-  const dropdown = this.nextElementSibling; // Get the dropdown content
-  dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block'; // Toggle dropdown
+      // Mobile menu toggle (open/close)
+const menuOpenButton = document.getElementById('menu-open-button');
+const menuCloseButton = document.getElementById('menu-close-button');
+const navMenu = document.querySelector('.nav-menu');
+const dropdownToggle = document.querySelector('.dropdown-toggle');
+const dropdownMenu = document.querySelector('.nav-item-dropdown');
+
+// Open mobile menu
+menuOpenButton.addEventListener('click', () => {
+  navMenu.classList.add('active');
+  menuOpenButton.style.display = 'none';
+  menuCloseButton.style.display = 'block';
+});
+
+// Close mobile menu
+menuCloseButton.addEventListener('click', () => {
+  navMenu.classList.remove('active');
+  menuOpenButton.style.display = 'block';
+  menuCloseButton.style.display = 'none';
+});
+
+// Toggle dropdown on mobile
+dropdownToggle.addEventListener('click', function(event) {
+  event.preventDefault();
+  dropdownMenu.classList.toggle('active'); // Toggle dropdown
+});
+
+// Close the entire menu when a submenu link is clicked
+document.querySelectorAll('.dropdown-content a').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('active'); // Close menu
+    dropdownMenu.classList.remove('active'); // Close dropdown
+    menuOpenButton.style.display = 'block';
+    menuCloseButton.style.display = 'none';
+  });
 });
 
     </script>
