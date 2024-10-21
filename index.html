@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="style.css" />
     <style>
-    /* Navbar styles */
+      /* Navbar styles */
 .nav-menu {
   list-style: none;
   display: flex;
@@ -29,19 +29,10 @@
   background-color: white; /* Background color of dropdown */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for dropdown */
   z-index: 10; /* Ensure it appears above other elements */
-  padding: 10px 0; /* Add padding to dropdown */
-  border-radius: 5px; /* Round corners */
 }
 
-.dropdown-content a {
-  display: block; /* Make links block-level for easier clicking */
-  padding: 8px 15px; /* Padding for links */
-  color: #333; /* Text color */
-  text-decoration: none; /* Remove underline */
-}
-
-.dropdown-content a:hover {
-  background-color: #f0f0f0; /* Change background on hover */
+.nav-item-dropdown:hover .dropdown-content {
+  display: block; /* Show dropdown on hover */
 }
 
 /* Responsive Styles */
@@ -65,11 +56,10 @@
 
   .nav-item-dropdown .dropdown-content {
     position: static; /* Position dropdown in normal flow */
-    display: none; /* Hide by default on mobile */
   }
 
-  .nav-item-dropdown.active .dropdown-content {
-    display: block; /* Show dropdown when active */
+  .nav-item-dropdown:hover .dropdown-content {
+    display: block; /* Show dropdown on tap */
   }
 }
 
@@ -77,6 +67,7 @@
   </head>
   <body>
     <!-- Header / Navbar -->
+<!-- Header / Navbar -->
 <header>
   <nav class="navbar">
     <a href="#" class="nav-logo">
@@ -116,6 +107,7 @@
     <button id="menu-open-button" class="fas fa-bars"></button>
   </nav>
 </header>
+
 
 
     <main>
@@ -371,24 +363,13 @@
 
     <!-- Linking custom script -->
     <script src="script.js"></script>
+
     <script>
       // Script to handle mobile dropdown
 document.querySelector('.dropdown-toggle').addEventListener('click', function(event) {
   event.preventDefault(); // Prevent default link behavior
   const dropdown = this.nextElementSibling; // Get the dropdown content
   dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block'; // Toggle dropdown
-  this.parentElement.classList.toggle('active'); // Toggle active class on parent
-});
-
-// Close the dropdown when clicking outside
-document.addEventListener('click', function(event) {
-  const dropdowns = document.querySelectorAll('.dropdown-content');
-  dropdowns.forEach(dropdown => {
-    if (!dropdown.parentElement.contains(event.target) && dropdown.style.display === 'block') {
-      dropdown.style.display = 'none'; // Hide dropdown if clicking outside
-      dropdown.parentElement.classList.remove('active'); // Remove active class
-    }
-  });
 });
 
     </script>
