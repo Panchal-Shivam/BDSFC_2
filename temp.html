@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Calculator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        :root {
+            --primary-color: #00355f;
+            --secondary-color: #f4f4f9;
+            --highlight-color: #00539CFF;
+        }
+
+        body {
+            background-color: var(--secondary-color);
+            font-family: "Roboto", sans-serif;
+        }
+
+        .calculator-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .left-section, .right-section {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-group label {
+            font-weight: bold;
+            color: var(--primary-color);
+            flex: 1;
+            margin-right: 10px;
+            text-align: center;
+        }
+
+        .slider {
+            width: 100%;
+        }
+
+        .result {
+            background-color: var(--secondary-color);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .result h3 {
+            font-size: 18px;
+            color: var(--primary-color);
+        }
+
+        .result .value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--highlight-color);
+        }
+
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 300px;
+            margin: auto;
+        }
+
+        .chart-container canvas {
+            max-width: 100%;
+        }
+
+        .emi-section {
+            font-weight: bold;
+            color: var(--highlight-color);
+            font-size: 36px;
+        }
+
+        .details-section {
+            font-size: 20px;
+            color: #000;
+            font-weight: 600;
+        }
+
+        .warning {
+            color: red;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator-container">
+    <div class="left-section">
+        <h2>Loan Calculator</h2>
+        <div class="input-group">
+            <label for="loanAmount">Loan Amount (₹)</label>
+            <input type="number" id="loanAmountInput" class="form-control" value="2500000" style="width: 100px;">
+            <input type="range" min="0" max="10000000" value="2500000" class="slider" id="loanAmount">
+            <div id="loanAmountWarning" class="warning"></div>
+            <div id="loanAmountLabel" class="mt-2 text-center">₹2500000</div>
+        </div>
+
+        <div class="input-group">
+            <label for="loanTenure">Tenure (Years)</label>
+            <input type="number" id="loanTenureInput" class="form-control" value="20" style="width: 100px;">
+            <input type="range" min="0" max="50" value="20" class="slider" id="loanTenure">
+            <div id="loanTenureWarning" class="warning"></div>
+            <div id="loanTenureLabel" class="mt-2 text-center">20 Years</div>
+        </div>
+
+        <div class="input-group">
+            <label for="interestRate">Interest Rate (% P.A.)</label>
+            <input type="number" id="interestRateInput" class="form-control" value="8" style="width: 100px;">
+            <input type="range" min="0" max="50" value="8" class="slider" id="interestRate">
+            <div id="interestRateWarning" class="warning"></div>
+            <div id="interestRateLabel" class="mt-2 text-center">8%</div>
+        </div>
+    </div>
+
+    <div class="right-section">
+        <div class="emi-section">
+            ₹<span id="emiValue">0</span>/month
+        </div>
+        <div class="details-section">
+            <p>Principal Amount: ₹<span id="principalAmountValue">0</span></p>
+            <p>Interest Amount: ₹<span id="interestPayableValue">0</span></p>
+            <p>Total Amount Payable: ₹<span id="totalAmountValue">0</span></p>
+        </div>
+        <div class="chart-container">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    const loanAmountInput = document.getElementById('loanAmount');
+    const loanAmountField = document.getElementById('loanAmountInput');
+    const loanAmountWarning = document.getElementById('loanAmountWarning');
+    const loanAmountLabel = document.getElementById('loanAmountLabel');
+
+    const interestRateInput = document.getElementById('interestRate');
+    const interestRateField = document.getElementById('interestRateInput');
+    const interestRateWarning = document.getElementById('interestRateWarning');
+    const interestRateLabel = document.getElementById('interestRateLabel');
+
+    const loanTenureInput = document.getElementById('loanTenure');
+    const loanTenureField = document.getElementById('loanTenureInput');
+    const loanTenureWarning = document.getElementById('loanTenureWarning');
+    const loanTenureLabel = document.getElementById('loanTenureLabel');
+
+    const emiValue = document.getElementById('emiValue');
+    const principalAmountValue = document.getElementById('principalAmountValue');
+    const totalAmountValue = document.getElementById('totalAmountValue');
+    const interestPayableValue = document.getElementById('interestPayableValue');
+
+    let myChart;
+
+    const displayChart = (totalInterest, loanAmount) => {
+        const ctx = document.getElementById('myChart').getContext('2d');
+        if (myChart) myChart.destroy();
+        myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Total Interest', 'Principal Loan Amount'],
+                datasets: [{
+                    data: [totalInterest, loanAmount],
+                    backgroundColor: ['#d3d3db', '#0fa4af'],
+                    borderWidth: 1
+                }]
+            }
+        });
+    };
+
+    const calculateEMI = (loanAmount, interestRate, loanTenure) => {
+        let monthlyInterest = interestRate / 12 / 100;
+        return loanAmount * monthlyInterest * (Math.pow(1 + monthlyInterest, loanTenure * 12) / (Math.pow(1 + monthlyInterest, loanTenure * 12) - 1));
+    };
+
+    const updateResults = () => {
+        let loanAmount = parseFloat(loanAmountInput.value);
+        let interestRate = parseFloat(interestRateInput.value);
+        let loanTenure = parseFloat(loanTenureInput.value);
+
+        let emi = calculateEMI(loanAmount, interestRate, loanTenure);
+        let totalAmount = emi * loanTenure * 12;
+        let totalInterest = totalAmount - loanAmount;
+
+        emiValue.textContent = Math.round(emi);
+        totalAmountValue.textContent = Math.round(totalAmount);
+        interestPayableValue.textContent = Math.round(totalInterest);
+        principalAmountValue.textContent = Math.round(loanAmount);
+
+        displayChart(totalInterest, loanAmount);
+    };
+
+    const validateInput = (inputField, minValue, maxValue, warningElement, labelElement) => {
+        let value = parseFloat(inputField.value);
+        if (value < minValue) {
+            inputField.value = minValue;
+            warningElement.textContent = `Value cannot be less than ${minValue}.`;
+        } else if (value > maxValue) {
+            inputField.value = maxValue;
+            warningElement.textContent = `Value cannot exceed ${maxValue}.`;
+        } else {
+            warningElement.textContent = '';
+        }
+        labelElement.textContent = inputField === loanAmountInput ? `₹${inputField.value}` : `${inputField.value}${inputField === interestRateInput ? '%' : ' Years'}`;
+        updateResults();
+        updateSlider(inputField.id, inputField.value);
+    };
+
+    const updateSlider = (id, value) => {
+        document.getElementById(id).value = value;
+        updateResults();
+    };
+
+    loanAmountInput.addEventListener('input', () => {
+        validateInput(loanAmountInput, 0, 10000000, loanAmountWarning, loanAmountLabel);
+    });
+
+    loanAmountInput.addEventListener('change', () => {
+        updateSlider('loanAmount', loanAmountInput.value);
+    });
+
+    loanAmount.addEventListener('input', () => {
+        loanAmountInput.value = loanAmount.value;
+        validateInput(loanAmountInput, 0, 10000000, loanAmountWarning, loanAmountLabel);
+    });
+
+    interestRateInput.addEventListener('input', () => {
+        validateInput(interestRateInput, 0, 50, interestRateWarning, interestRateLabel);
+    });
+
+    interestRateInput.addEventListener('change', () => {
+        updateSlider('interestRate', interestRateInput.value);
+    });
+
+    interestRate.addEventListener('input', () => {
+        interestRateInput.value = interestRate.value;
+        validateInput(interestRateInput, 0, 50, interestRateWarning, interestRateLabel);
+    });
+
+    loanTenureInput.addEventListener('input', () => {
+        validateInput(loanTenureInput, 0, 50, loanTenureWarning, loanTenureLabel);
+    });
+
+    loanTenureInput.addEventListener('change', () => {
+        updateSlider('loanTenure', loanTenureInput.value);
+    });
+
+    loanTenure.addEventListener('input', () => {
+        loanTenureInput.value = loanTenure.value;
+        validateInput(loanTenureInput, 0, 50, loanTenureWarning, loanTenureLabel);
+    });
+
+    // Initial calculation
+    updateResults();
+
+</script>
+
+</body>
+</html>
