@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BDSFC | Loan Assistance</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Services section */
+        .service-section {
+            padding: 60px 20px;
+            background-color: var(--grey-color);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .section-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .service-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .service-item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            max-width: 300px;
+            transition: transform 0.3s ease;
+            flex: 1 1 250px;
+            cursor: pointer; /* Add pointer cursor for interactive element */
+        }
+
+        .service-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-image {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+        }
+
+        .service-details .name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .service-details .text {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Popup styles */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup-content {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            position: relative;
+            max-width: 500px;
+            width: 80%;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .service-item {
+                max-width: 100%;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .service-list {
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Services section -->
+    <section class="service-section" id="service">
+        <h2 class="section-title">Our Services</h2>
+        <div class="section-content">
+            <ul class="service-list">
+                <li class="service-item" onclick="openPopup('Home Loan', 'Unlock Your Home Ownership Dreams with Expert Loan Assistance<br><br>Low Interest Rates<br>Secure competitive home loan rates, starting at just 8.40% (eligibility-based), making home financing more affordable.<br><br>Flexible Options for All Credit Scores<br>We provide guidance and options tailored to you—even if you have a low CIBIL score. Our team is here to help.<br><br>Top Offers from Trusted Lenders<br>We connect you to the best deals available, comparing multiple lenders to ensure you get the right offer for your needs.')">
+                    <img src="images/home-loan-icon.png" alt="Home Loan" class="service-image" />
+                    <div class="service-details">
+                        <h3 class="name">Home Loan</h3>
+                        <p class="text">Get easy financing for your dream home with flexible payment options.</p>
+                    </div>
+                </li>
+                <li class="service-item" onclick="openPopup('Mortgage Loan', 'Mortgage Loan Assistance – Unlock Financial Flexibility with Your Property<br><br>Our Mortgage Loan Assistance helps you leverage your property’s value for a range of needs—be it funding a new business, managing unexpected expenses, or achieving personal goals. With access to competitive interest rates and options tailored to various credit scores, we make sure you have the support to make the most of your assets.<br><br>Affordable Interest Rates<br>Benefit from competitive mortgage rates starting at just 8.40%, helping you finance your needs affordably.<br><br>Flexible Solutions for All Credit Scores<br>We’re here to assist, even if your CIBIL score is less than ideal, providing options to suit different financial backgrounds.<br><br>Customized Offers from Leading Lenders<br>Our experts assess multiple lenders to find the best offers for your unique needs, ensuring confidence in your financial journey.')">
+                    <img src="images/mortgage-loan-icon.png" alt="Mortgage Loan" class="service-image" />
+                    <div class="service-details">
+                        <h3 class="name">Mortgage Loan</h3>
+                        <p class="text">Unlock financial flexibility with your property.</p>
+                    </div>
+                </li>
+                <li class="service-item" onclick="openPopup('Personal Loan', 'Quick personal loans to meet your immediate financial needs.')">
+                    <img src="images/personal-loan-icon.png" alt="Personal Loan" class="service-image" />
+                    <div class="service-details">
+                        <h3 class="name">Personal Loan</h3>
+                        <p class="text">Quick personal loans to meet your immediate financial needs.</p>
+                    </div>
+                </li>
+                <li class="service-item" onclick="openPopup('Education Loan', 'Fund your education and career aspirations with our student loans.')">
+                    <img src="images/education-loan-icon.png" alt="Education Loan" class="service-image" />
+                    <div class="service-details">
+                        <h3 class="name">Education Loan</h3>
+                        <p class="text">Fund your education and career aspirations with our student loans.</p>
+                    </div>
+                </li>
+                <li class="service-item" onclick="openPopup('Health Insurance', 'Comprehensive health insurance plans for you and your family.')">
+                    <img src="images/health-insurance-icon.png" alt="Health Insurance" class="service-image" />
+                    <div class="service-details">
+                        <h3 class="name">Health Insurance</h3>
+                        <p class="text">Comprehensive health insurance plans for you and your family.</p>
+                    </div>
+                </li>
+                <li class="service-item" onclick="openPopup('General Insurance', 'Protect your assets with our wide range of general insurance options.')">
+                    <img src="images/general-insurance-icon.png" alt="General Insurance" class="service-image" />
+                    <div class="service-details">
+                        <h3 class="name">General Insurance</h3>
+                        <p class="text">Protect your assets with our wide range of general insurance options.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Popup Structure -->
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <span class="close-button" onclick="closePopup()">&times;</span>
+            <h2 id="popup-title"></h2>
+            <p id="popup-description"></p>
+        </div>
+    </div>
+
+    <script>
+        function openPopup(title, description) {
+            document.getElementById('popup-title').innerText = title;
+            document.getElementById('popup-description').innerHTML = description; // Use innerHTML to allow line breaks
+            document.getElementById('popup').style.display = 'flex';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
