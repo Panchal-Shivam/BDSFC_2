@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BDSFC | Loan Assistance</title>
+    <!-- Linking Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <style>
+
+      /* Add padding to avoid touching extreme left */
+      .calculator-container {
+          padding-left: 15px;
+          padding-right: 15px;
+          margin: 0 auto; /* Center the calculator */
+          max-width: 800px; /* Adjust the width to your liking */
+          padding: 20px; /* Add some padding for spacing */
+      }
+      
+      
+      
+      .loan-calculator {
+          font-family: "Roboto", sans-serif;
+          width: 800px;
+          margin: 90px auto;
+          background: #fff;
+          box-shadow: 0 12px 50px -11px rgba(0, 0, 0, 0.2);
+          border-radius: 8px;
+          color: #14213d;
+          overflow: hidden;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          gap: 20px;
+      }
+      
+            .loan-calculator,
+            .loan-calculator * {
+                box-sizing: border-box;
+            }
+      
+            .loan-calculator .top {
+                /* background: #dbdbde; */
+                color: #000000;
+                padding: 10px;
+              margin-top: 40px ;
+                font-size: 18px;
+                font-weight: 800;
+                width: 50%;
+            }
+      
+            .loan-calculator .top h2 {
+                margin-top: 0;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+      
+            .loan-calculator .group {
+                margin-bottom: 25px;
+            }
+      
+            .loan-calculator .title {
+                margin-bottom: 8px;
+            }
+      
+            .loan-calculator .slider {
+                width: 100%;
+            }
+      
+            .loan-calculator .result {
+                display: flex;
+                justify-content: space-between;
+                width: 50%;
+          align-items: flex-start;
+          margin: 50px auto;
+            }
+      
+            .loan-calculator .result .left {
+                width: 100%;
+                padding: 8px 32px;
+            }
+      
+            .loan-calculator .left h3 {
+                font-size: 16px;
+                font-weight: 400;
+                margin-bottom: 8px;
+            }
+      
+            .loan-calculator .result .value {
+                font-size: 24px;
+                font-weight: 900;
+                padding-bottom: 10px;
+                border-bottom: 1px solid rgba(20, 33, 61, 0.2);
+                cursor: pointer; /* Change cursor to pointer for clickable values */
+            }
+      
+            .loan-calculator .result .value::before {
+                content: "₹";
+                font-size: 24px;
+                font-weight: 400;
+                margin-right: 6px;
+                opacity: 0.4;
+            }
+      
+            .result .left, .result .right {
+          width: 50%;
+      }
+      
+      .loan-calculator .right {
+          width: 50%; /* Or adjust as needed */
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+      
+      .calculate-btn{
+          visibility: hidden;
+      }
+      
+            .loan-calculator .calculate-btn {
+                background: #fd9916;
+                color: #fff;
+                border: none;
+                padding: 8px 32px;
+                border-radius: 8px;
+                font-size: 18px;
+                font-weight: 900;
+                cursor: pointer;
+                margin: 24px 0;
+            }
+      
+            .loan-calculator .right {
+                width: 50%;
+            }
+      
+            .loan-calculator .intervals {
+                display: flex;
+                justify-content: space-between;
+            }
+      
+            .loan-calculator input[type="text"] {
+                width: 80px;
+                font-size: 24px;
+                padding: 5px;
+                margin-left: 10px;
+                display: none; /* Initially hidden */
+            }
+      
+            @media (max-width: 650px) {
+                .loan-calculator {
+                  flex-direction: column;
+              width: 100%;
+              max-width: 500px;
+                }
+      
+                .loan-calculator .top {
+              font-size: 20px; /
+          }
+      
+      
+                .loan-calculator .result {
+                    flex-direction: column;
+                    text-align: center;
+                }
+                .loan-calculator .top, .loan-calculator .result {
+              width: 100%;
+          }
+      
+          .result {
+              flex-direction: column;
+              text-align: center;
+          }
+      
+          .result .left, .result .right {
+              width: 100%;
+          }
+      
+          .loan-calculator .right {
+              width: 100%;
+          }
+      
+          .loan-calculator .right canvas {
+              width: 80%; /* Smaller size for mobile */
+              height: auto;
+          }
+      
+      
+            }
+        </style>
+
+
+</head>
+<body>
+
+<!-- Header / Navbar -->
+<header>
+    <nav class="navbar">
+        <a href="#" class="nav-logo">
+            <h2 class="logo-text">BDSFC</h2>
+            <p class="comp-name">Baba Deep SinghJi Finance Corporation</p>
+        </a>
+
+        <ul class="nav-menu">
+            <button id="menu-close-button" class="fas fa-times"></button>
+
+            <li class="nav-item"><a href="index.html#home" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="index.html#about" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="index.html#service" class="nav-link">Services</a></li>
+            <li class="nav-item-dropdown" id="resources-dropdown">
+                <a href="#" class="nav-link dropdown-toggle">Resources</a>
+                <div class="dropdown-content">
+                    <a href="blogs-page.html">Blogs</a>
+                    <a href="emi-calculator.html">Calculator</a>
+                </div>
+            </li>
+            <li class="nav-item"><a href="index.html#testimonials" class="nav-link">Testimonials</a></li>
+            <li class="nav-item"><a href="index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <button id="menu-open-button" class="fas fa-bars"></button>
+    </nav>
+</header>
+
+<main>
+   
+    
+  <section class="calculator-container">
+    <div class="loan-calculator">
+ <div class="top">
+     <h2>Loan Calculator</h2>
+     <form action="#">
+         <div class="group">
+             <div class="title">Loan Amount</div>
+             <input type="range" min="100000" max="10000000" value="3000000" class="loan-amount slider" />
+             <span class="amount-value" id="amountValue">₹<span class="amount-text">30,00,000</span></span>
+             <input type="text" class="amount-input" id="amountInput" />
+             <div class="intervals">
+                 <span>₹1L</span>
+                 <span>₹25L</span>
+                 <span>₹50L</span>
+                 <span>₹75L</span>
+                 <span>₹1CR</span>
+             </div>
+         </div>
+
+         <div class="group">
+             <div class="title">Interest Rate (%)</div>
+             <input type="range" min="1" max="30" value="8.5" class="interest-rate slider" />
+             <span class="interest-value" id="interestValue"><span class="interest-text">8.5</span>%</span>
+             <input type="text" class="interest-input" id="interestInput" />
+             <div class="intervals">
+                 <span>1%</span>
+                 <span>10%</span>
+                 <span>20%</span>
+                 <span>30%</span>
+             </div>
+         </div>
+
+         <div class="group">
+             <div class="title">Loan Tenure (Years)</div>
+             <input type="range" min="1" max="30" value="20" class="loan-tenure slider" />
+             <span class="tenure-value" id="tenureValue"><span class="tenure-text">20</span>Y</span>
+             <input type="text" class="tenure-input" id="tenureInput" />
+             <div class="intervals">
+                 <span>1Y</span>
+                 <span>10Y</span>
+                 <span>20Y</span>
+                 <span>30Y</span>
+             </div>
+         </div>
+     </form>
+ </div>
+
+ <div class="result">
+     <div class="left">
+         <div class="loan-emi">
+             <h3>Loan EMI</h3>
+             <div class="value">0</div>
+         </div>
+
+         <div class="total-interest">
+             <h3>Total Interest Payable</h3>
+             <div class="value">0</div>
+         </div>
+
+         <div class="total-amount">
+             <h3>Total Amount</h3>
+             <div class="value">0</div>
+         </div>
+
+         <button class="calculate-btn">Calculate</button>
+     </div>
+
+     <div class="right">
+         <canvas id="myChart" width="400" height="400"></canvas>
+     </div>
+ </div>
+</div>
+ </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="section-content">
+            <ul class="contact-info-list">
+                <li class="contact-info">
+                    <i class="fa-solid fa-location-crosshairs"></i>
+                    <p>123 Campsite Avenue, Wilderness, CA 98765</p>
+                </li>
+                <li class="contact-info">
+                    <i class="fa-regular fa-envelope"></i>
+                    <p>BabaDeepSinghJiFinance1313@gmail.com</p>
+                </li>
+                <li class="contact-info">
+                    <i class="fa-solid fa-phone"></i>
+                    <p>(123) 456-78909</p>
+                </li>
+            </ul>
+
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+                <input type="hidden" name="access_key" value="6f204368-333a-4365-b57c-1e3d82ee0b51">
+                <input type="text" name="name" placeholder="Your name" class="form-input" required />
+                <input type="number" name="phone" placeholder="Your Number" class="form-input" />
+                <input type="email" name="email" placeholder="Your email" class="form-input" required />
+                <textarea name="message" placeholder="Your message" class="form-input" required></textarea>
+                <div class="submit-button-container">
+                    <button type="submit" class="button submit-button">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="section-content">
+            <p class="copyright-text">&copy; Baba Deep SinghJi Finance Corporation</p>
+            <div class="social-link-list">
+                <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/919979384257" class="social-link" target="_blank">
+                      <i class="fa-brands fa-whatsapp"></i>
+           </a>
+                <a href="https://wa.me/919979384257" class="social-link" target="_blank">
+                      <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+            </div>
+            <p class="dev-name"> Made by Shivam Panchal</p>
+        </div>
+    </footer>
+</main>
+
+<!-- Linking Swiper script -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Linking custom script -->
+<script src="script.js"></script>
+<script>
+
+  // Configuration for maximum values
+  const config = {
+      maxLoanAmount: 10000000, // ₹10,000,000
+      maxInterestRate: 30, // 50%
+      maxLoanTenure: 30, // 50 years
+  };
+
+  const loanAmountInput = document.querySelector(".loan-amount");
+  const interestRateInput = document.querySelector(".interest-rate");
+  const loanTenureInput = document.querySelector(".loan-tenure");
+
+  const loanEMIValue = document.querySelector(".loan-emi .value");
+  const totalInterestValue = document.querySelector(".total-interest .value");
+  const totalAmountValue = document.querySelector(".total-amount .value");
+
+  const amountText = document.querySelector(".amount-text");
+  const interestText = document.querySelector(".interest-text");
+  const tenureText = document.querySelector(".tenure-text");
+
+  let myChart;
+
+  const displayChart = (totalInterestPayableValue, loanAmount) => {
+      const ctx = document.getElementById("myChart").getContext("2d");
+      myChart = new Chart(ctx, {
+          type: "pie",
+          data: {
+              labels: ["Total Interest", "Principal Loan Amount"],
+              datasets: [{
+                  data: [totalInterestPayableValue, loanAmount],
+                  backgroundColor: ["#d3d3db","#0fa4af"],
+                  borderWidth: 0,
+              }],
+          },
+      });
+  };
+
+  const calculateEMI = (loanAmount, interestRate, loanTenure) => {
+      const monthlyInterest = interestRate / 12 / 100;
+      return loanAmount * monthlyInterest * (Math.pow(1 + monthlyInterest, loanTenure * 12) / (Math.pow(1 + monthlyInterest, loanTenure * 12) - 1));
+  };
+
+  const updateData = (emi, loanAmount, loanTenure) => {
+      loanEMIValue.innerHTML = Math.round(emi);
+      const totalAmount = Math.round(loanTenure * 12 * emi);
+      totalAmountValue.innerHTML = totalAmount;
+      const totalInterestPayable = Math.round(totalAmount - loanAmount);
+      totalInterestValue.innerHTML = totalInterestPayable;
+
+      if (myChart) {
+          myChart.data.datasets[0].data[0] = totalInterestPayable;
+          myChart.data.datasets[0].data[1] = loanAmount;
+          myChart.update();
+      } else {
+          displayChart(totalInterestPayable, loanAmount);
+      }
+  };
+
+  const capValue = (value, maxValue) => Math.min(value, maxValue);
+
+  const init = () => {
+      const loanAmount = capValue(parseFloat(loanAmountInput.value), config.maxLoanAmount);
+      const interestRate = capValue(parseFloat(interestRateInput.value), config.maxInterestRate);
+      const loanTenure = capValue(parseFloat(loanTenureInput.value), config.maxLoanTenure);
+
+      loanAmountInput.value = loanAmount;
+      interestRateInput.value = interestRate;
+      loanTenureInput.value = loanTenure;
+
+      // Ensure we calculate EMI with the capped values
+      const emi = calculateEMI(loanAmount, interestRate, loanTenure);
+      updateData(emi, loanAmount, loanTenure);
+  };
+
+  const updateInputAndSlider = (slider, valueText, inputField, maxValue) => {
+      slider.addEventListener("input", () => {
+          const value = capValue(slider.value, maxValue);
+          valueText.textContent = value;
+          inputField.value = value;
+          init();
+      });
+
+      valueText.addEventListener("click", () => {
+          valueText.style.display = "none";
+          inputField.style.display = "inline";
+          inputField.value = valueText.textContent.replace(/,/g, ''); // Remove commas for input
+          inputField.focus();
+      });
+
+      inputField.addEventListener("blur", () => {
+          const newValue = capValue(parseFloat(inputField.value), maxValue); // Set to max value if above limit
+          valueText.style.display = "inline";
+          inputField.style.display = "none";
+          inputField.value = newValue; // Update input to the new capped value
+          slider.value = newValue; // Ensure slider reflects new value
+          valueText.textContent = newValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); // Format with commas
+          init();
+      });
+
+      slider.addEventListener("change", () => {
+          inputField.value = slider.value; // Update input field when slider change is complete
+          init(); // Recalculate on slider change
+      });
+  };
+
+  // Initialize with default values
+  amountText.textContent = loanAmountInput.value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  interestText.textContent = interestRateInput.value;
+  tenureText.textContent = loanTenureInput.value;
+
+  updateInputAndSlider(loanAmountInput, amountText, document.querySelector("#amountInput"), config.maxLoanAmount);
+  updateInputAndSlider(interestRateInput, interestText, document.querySelector("#interestInput"), config.maxInterestRate);
+  updateInputAndSlider(loanTenureInput, tenureText, document.querySelector("#tenureInput"), config.maxLoanTenure);
+
+  document.querySelector(".calculate-btn").addEventListener("click", init);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // const loanAmountInput = document.querySelector(".loan-amount");
+  // const interestRateInput = document.querySelector(".interest-rate");
+  // const loanTenureInput = document.querySelector(".loan-tenure");
+
+  // const loanEMIValue = document.querySelector(".loan-emi .value");
+  // const totalInterestValue = document.querySelector(".total-interest .value");
+  // const totalAmountValue = document.querySelector(".total-amount .value");
+
+  // const amountText = document.querySelector(".amount-text");
+  // const interestText = document.querySelector(".interest-text");
+  // const tenureText = document.querySelector(".tenure-text");
+
+  // const calculateBtn = document.querySelector(".calculate-btn");
+
+  // // Define maximum values
+  // let maxLoanAmount = 10000000; // ₹10,000,000
+  // let maxInterestRate = 30; // 30%
+  // let maxLoanTenure = 30; // 30 years
+
+  // let myChart;
+
+  // const displayChart = (totalInterestPayableValue, loanAmount) => {
+  //     const ctx = document.getElementById("myChart").getContext("2d");
+  //     myChart = new Chart(ctx, {
+  //         type: "pie",
+  //         data: {
+  //             labels: ["Total Interest", "Principal Loan Amount"],
+  //             datasets: [{
+  //                 data: [totalInterestPayableValue, loanAmount],
+  //                 backgroundColor: ["#d3d3db","#0fa4af"],
+  //                 borderWidth: 0,
+  //             }],
+  //         },
+  //     });
+  // };
+
+  // const calculateEMI = (loanAmount, interestRate, loanTenure) => {
+  //     let interest = interestRate / 12 / 100;
+  //     return loanAmount * interest * (Math.pow(1 + interest, loanTenure * 12) / (Math.pow(1 + interest, loanTenure * 12) - 1));
+  // };
+
+  // const updateData = (emi, loanAmount, loanTenure) => {
+  //     loanEMIValue.innerHTML = Math.round(emi);
+  //     let totalAmount = Math.round(loanTenure * 12 * emi);
+  //     totalAmountValue.innerHTML = totalAmount;
+  //     let totalInterestPayable = Math.round(totalAmount - loanAmount);
+  //     totalInterestValue.innerHTML = totalInterestPayable;
+
+  //     if (myChart) {
+  //         myChart.data.datasets[0].data[0] = totalInterestPayable;
+  //         myChart.data.datasets[0].data[1] = loanAmount;
+  //         myChart.update();
+  //     } else {
+  //         displayChart(totalInterestPayable, loanAmount);
+  //     }
+  // };
+
+  // const init = () => {
+  //     // Cap values to maximum limits
+  //     let loanAmount = Math.min(parseFloat(loanAmountInput.value), maxLoanAmount);
+  //     let interestRate = Math.min(parseFloat(interestRateInput.value), maxInterestRate);
+  //     let loanTenure = Math.min(parseFloat(loanTenureInput.value), maxLoanTenure);
+
+  //     // Update input fields to reflect capped values
+  //     loanAmountInput.value = loanAmount; 
+  //     interestRateInput.value = interestRate; 
+  //     loanTenureInput.value = loanTenure; 
+
+  //     let emi = calculateEMI(loanAmount, interestRate, loanTenure);
+  //     updateData(emi, loanAmount, loanTenure);
+  // };
+
+  // const updateValue = (slider, valueText, inputField, maxValue) => {
+  //     slider.addEventListener("input", () => {
+  //         let value = Math.min(slider.value, maxValue);
+  //         valueText.textContent = value;
+  //         inputField.value = value;
+  //         init();
+  //     });
+
+  //     valueText.addEventListener("click", () => {
+  //         valueText.style.display = "none";
+  //         inputField.style.display = "inline";
+  //         inputField.value = valueText.textContent.replace(/,/g, ''); // Remove commas for input
+  //         inputField.focus();
+  //     });
+
+  //     inputField.addEventListener("blur", () => {
+  //         let newValue = Math.min(parseFloat(inputField.value), maxValue); // Ensure max value is applied
+  //         valueText.style.display = "inline";
+  //         inputField.style.display = "none";
+  //         inputField.value = newValue; // Set input value to capped value
+  //         slider.value = newValue; // Ensure slider reflects new value
+  //         valueText.textContent = newValue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); // Format with commas
+  //         init();
+  //     });
+
+  //     // Prevent showing a red cross when the slider is being adjusted
+  //     slider.addEventListener("change", () => {
+  //         inputField.value = slider.value; // Update input field when slider change is complete
+  //         init(); // Recalculate on slider change
+  //     });
+  // };
+
+  // // Initialize with default values
+  // amountText.textContent = loanAmountInput.value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  // interestText.textContent = interestRateInput.value;
+  // tenureText.textContent = loanTenureInput.value;
+
+  // // Update values with respective max limits
+  // updateValue(loanAmountInput, amountText, document.querySelector("#amountInput"), maxLoanAmount);
+  // updateValue(interestRateInput, interestText, document.querySelector("#interestInput"), maxInterestRate);
+  // updateValue(loanTenureInput, tenureText, document.querySelector("#tenureInput"), maxLoanTenure);
+
+  // calculateBtn.addEventListener("click", init);
+
+  // // Function to set new limits
+  // const setNewLimits = (newLoanLimit, newInterestLimit, newTenureLimit) => {
+  //     maxLoanAmount = newLoanLimit;
+  //     maxInterestRate = newInterestLimit;
+  //     maxLoanTenure = newTenureLimit;
+
+  //     // Reinitialize to update inputs with new limits
+  //     init();
+  // };
+
+  // // Example of how to use the setNewLimits function
+  // // Uncomment and set new limits if needed
+  // setNewLimits(50000000, 50, 50); // Adjust to new max limits
+
+</script>
+
+</body>
+</html>

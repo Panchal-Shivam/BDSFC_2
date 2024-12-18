@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BDSFC | Loan Assistance</title>
+    <!-- Linking Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* Navbar Styles */
+
+        header{
+            margin-top: -30px;
+        }
+
+                /* Education Loan Section Styles */
+
+        .education-loan-section {
+            margin-top: 30px; 
+            padding: 20px;
+        }
+
+        .education-loan-description {
+            margin-top: 70px;
+        }
+
+        .education-loan-article h4 {
+            margin-top: 1.5rem;
+            color: var(--primary-color); 
+        }
+
+        .education-loan-article p {
+            color: #333;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .education-loan-section .lead {
+            font-size: 1.1rem;
+            font-weight: 300;
+            color: #555;
+        }
+
+
+        /* Contact Section Styles */
+        .contact-section {
+            margin-top: 50px; /* Add spacing above the contact section if needed */
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Header / Navbar -->
+<header>
+    <nav class="navbar">
+        <a href="#" class="nav-logo">
+            <h2 class="logo-text">BDSFC</h2>
+            <p class="comp-name">Baba Deep SinghJi Finance Corporation</p>
+        </a>
+
+        <ul class="nav-menu">
+            <button id="menu-close-button" class="fas fa-times"></button>
+
+            <li class="nav-item"><a href="../index.html#home" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="../index.html#about" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="../index.html#service" class="nav-link">Services</a></li>
+            <li class="nav-item-dropdown" id="resources-dropdown">
+                <a href="#" class="nav-link dropdown-toggle">Resources</a>
+                <div class="dropdown-content">
+                    <a href="../blogs-page.html">Blogs</a>
+                    <a href="../emi-calculator.html">Calculator</a>
+                </div>
+            </li>
+            <li class="nav-item"><a href="../index.html#testimonials" class="nav-link">Testimonials</a></li>
+            <li class="nav-item"><a href="../index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <button id="menu-open-button" class="fas fa-bars"></button>
+    </nav>
+</header>
+
+<main>
+    <section class="education-loan-section">
+        <div class="education-loan-description">
+            <h2 class="text-center mb-4">Education Loan Assistance – Invest in a Brighter Future</h2>
+    
+            <!-- Education Loan Introduction -->
+            <p class="lead">
+                Our Education Loan Assistance helps students and parents secure funding for higher education, covering tuition fees, study materials, and other academic expenses. With our flexible loan options and guidance, you can focus on achieving academic goals without financial stress.
+            </p>
+    
+            <!-- Education Loan Content -->
+            <div class="education-loan-article mt-4">
+                <h4>1. Low-Interest Rates</h4>
+                <p>
+                    Benefit from attractive interest rates that make education financing affordable, helping you invest in your future with ease.
+                </p>
+    
+                <h4>2. Flexible Repayment Terms</h4>
+                <p>
+                    Choose from various repayment plans that accommodate your financial situation, allowing you to start repayment after completing your studies.
+                </p>
+    
+                <h4>3. Financing for All Academic Levels</h4>
+                <p>
+                    We support students at different academic stages, from undergraduate programs to postgraduate and professional studies.
+                </p>
+    
+                <!-- Conclusion -->
+                <h4>Final Thoughts</h4>
+                <p>
+                    With our Education Loan Assistance, take the next step toward academic success with confidence. We’re committed to helping you fund your dreams and secure a brighter future.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="section-content">
+            <ul class="contact-info-list">
+                <li class="contact-info">
+                    <i class="fa-solid fa-location-crosshairs"></i>
+                    <p>123 Campsite Avenue, Wilderness, CA 98765</p>
+                </li>
+                <li class="contact-info">
+                    <i class="fa-regular fa-envelope"></i>
+                    <p>BabaDeepSinghJiFinance1313@gmail.com</p>
+                </li>
+                <li class="contact-info">
+                    <i class="fa-solid fa-phone"></i>
+                    <p>9979384257</p>
+                </li>
+            </ul>
+
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+                <input type="hidden" name="access_key" value="6f204368-333a-4365-b57c-1e3d82ee0b51">
+                <input type="text" name="name" placeholder="Your name" class="form-input" required />
+                <input type="number" name="phone" placeholder="Your Number" class="form-input" />
+                <input type="email" name="email" placeholder="Your email" class="form-input" required />
+                <textarea name="message" placeholder="Your message" class="form-input" required></textarea>
+                <div class="submit-button-container">
+                    <button type="submit" class="button submit-button">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="section-content">
+            <p class="copyright-text">&copy; Baba Deep SinghJi Finance Corporation</p>
+            <div class="social-link-list">
+                <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/919979384257" class="social-link" target="_blank">
+                      <i class="fa-brands fa-whatsapp"></i>
+           </a>
+            </div>
+            <p class="dev-name"> Made by Shivam Panchal</p>
+        </div>
+    </footer>
+</main>
+
+<!-- Linking Swiper script -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Linking custom script -->
+<script src="../script.js"></script>
+
+</body>
+</html>

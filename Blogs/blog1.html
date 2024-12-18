@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BDSFC | Loan Assistance</title>
+    <!-- Linking Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* Navbar Styles */
+
+        header{
+            margin-top: -30px;
+        }
+
+        /* Insurance Section Styles */
+
+.insurance-section {
+    margin-top: 30px; /* Creates space below the navbar */
+    padding: 20px;
+}
+
+.insurance-description {
+    margin-top: 70px;
+}
+
+.insurance-article h4 {
+    margin-top: 1.5rem;
+    color: var(--primary-color); /* Keeps heading color consistent with other sections */
+}
+
+.insurance-article p, .insurance-article ul {
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.insurance-section .lead {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #555;
+}
+
+
+        /* Contact Section Styles */
+        .contact-section {
+            margin-top: 50px; /* Add spacing above the contact section if needed */
+        }
+
+        /* Responsive Styles */
+
+/* For small screens */
+@media (max-width: 768px) {
+    /* Navbar adjustments */
+    .nav-logo h2 {
+        font-size: 1.5rem; /* Adjust logo text size for small screens */
+    }
+
+    .nav-menu {
+        flex-direction: column; /* Stack menu items vertically */
+    }
+
+    .nav-item {
+        margin: 10px 0; /* Add spacing between menu items */
+    }
+
+    /* Insurance Section Adjustments */
+    .insurance-section {
+        padding: 10px; /* Reduce padding on smaller screens */
+    }
+
+    .insurance-description h2 {
+        font-size: 1.8rem; /* Reduce title font size */
+    }
+
+    .insurance-article h4 {
+        font-size: 1.2rem; /* Reduce subtitle font size */
+    }
+
+    .insurance-article p, .insurance-article ul {
+        font-size: 0.9rem; /* Adjust paragraph font size */
+    }
+
+    /* Contact Section Adjustments */
+    .contact-section .contact-info-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center align on smaller screens */
+    }
+
+    .contact-section .form-input {
+        width: 100%; /* Make form inputs full-width */
+        max-width: 400px; /* Optional max width */
+    }
+}
+
+/* For extra small screens */
+@media (max-width: 576px) {
+    .nav-menu {
+        display: none; /* Hide full menu for very small screens */
+    }
+    #menu-open-button {
+        display: block; /* Ensure hamburger menu icon shows */
+    }
+
+    .insurance-description h2 {
+        font-size: 1.5rem;
+    }
+    .insurance-section .lead,
+    .insurance-article p, .insurance-article ul {
+        font-size: 0.8rem;
+    }
+}
+
+
+
+
+    </style>
+</head>
+<body>
+
+<!-- Header / Navbar -->
+<header>
+    <nav class="navbar">
+        <a href="#" class="nav-logo">
+            <h2 class="logo-text">BDSFC</h2>
+            <p class="comp-name">Baba Deep SinghJi Finance Corporation</p>
+        </a>
+
+        <ul class="nav-menu">
+            <button id="menu-close-button" class="fas fa-times"></button>
+
+            <li class="nav-item"><a href="../index.html#home" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="../index.html#about" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="../index.html#service" class="nav-link">Services</a></li>
+            <li class="nav-item-dropdown" id="resources-dropdown">
+                <a href="#" class="nav-link dropdown-toggle">Resources</a>
+                <div class="dropdown-content">
+                    <a href="../blogs-page.html">Blogs</a>
+                    <a href="../emi-calculator.html">Calculator</a>
+                </div>
+            </li>
+            <li class="nav-item"><a href="../index.html#testimonials" class="nav-link">Testimonials</a></li>
+            <li class="nav-item"><a href="../index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <button id="menu-open-button" class="fas fa-bars"></button>
+    </nav>
+</header>
+
+<main>
+    <section class="insurance-section"> 
+        <div class="insurance-description">
+            <h2 class="text-center mb-4">Why Insurance is a Must-Have: Protecting Your Future</h2>
+    
+            <!-- Insurance Introduction -->
+            <p class="lead">
+                Insurance, often seen as a necessary evil, is actually a powerful tool to safeguard your future. It’s a safety net that can protect you and your loved ones from unforeseen financial hardships. In this blog post, we’ll delve into the importance of insurance and why it should be a priority for everyone.
+            </p>
+    
+            <!-- Insurance Content -->
+            <div class="insurance-article mt-4">
+                <h4>Why is Insurance Important?</h4>
+                <p>
+                    <strong>Risk Mitigation:</strong> Life is full of uncertainties. Insurance helps mitigate financial risks associated with accidents, illnesses, natural disasters, and more.
+                </p>
+                <p>
+                    <strong>Financial Security:</strong> Insurance provides a financial cushion to cover unexpected expenses, ensuring your financial stability.
+                </p>
+                <p>
+                    <strong>Peace of Mind:</strong> Knowing that you and your loved ones are protected can bring peace of mind.
+                </p>
+                <p>
+                    <strong>Legal Compliance:</strong> In many cases, insurance is a legal requirement, such as for vehicle ownership or business operations.
+                </p>
+    
+                <h4>Types of Insurance</h4>
+                <ul>
+                    <li><strong>Life Insurance:</strong> Provides financial security to your family in case of your untimely demise. Can be used for various purposes, such as paying off debts, funding children's education, or retirement planning.</li>
+                    <li><strong>Health Insurance:</strong> Covers medical expenses, including hospitalizations, surgeries, and medications. Protects you and your family from the high cost of medical care.</li>
+                    <li><strong>Home Insurance:</strong> Covers damage to your home and belongings due to fire, theft, natural disasters, or other unforeseen events.</li>
+                    <li><strong>Car Insurance:</strong> Protects you financially in case of accidents, theft, or damage to your vehicle.</li>
+                    <li><strong>Business Insurance:</strong> Protects your business from various risks, such as property damage, liability claims, and business interruption.</li>
+                </ul>
+    
+                <h4>How to Choose the Right Insurance Policy</h4>
+                <p>
+                    <strong>Assess Your Needs:</strong> Identify your specific needs and risk factors.<br>
+                    <strong>Compare Policies:</strong> Research different insurance providers and compare their coverage, premiums, and terms.<br>
+                    <strong>Consider Your Budget:</strong> Choose a policy that fits your budget without compromising on coverage.<br>
+                    <strong>Consult a Financial Advisor:</strong> Seek expert advice to make informed decisions.
+                </p>
+    
+                <h4>Don't Delay, Insure Today</h4>
+                <p>
+                    By investing in insurance, you're investing in your future. Don't wait for a crisis to strike. Take proactive steps to protect yourself and your loved ones. Remember, insurance is not just an expense; it's an investment in your peace of mind.
+                </p>
+    
+                <p>
+                    By understanding the importance of insurance and taking the necessary steps to protect yourself and your loved ones, you can build a secure financial future.
+                </p>
+    
+                <p>
+                    Contact us today for a free consultation and let us help you find the right insurance solution to fit your needs.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="section-content">
+            <ul class="contact-info-list">
+                <li class="contact-info">
+                    <i class="fa-solid fa-location-crosshairs"></i>
+                    <p>123 Campsite Avenue, Wilderness, CA 98765</p>
+                </li>
+                <li class="contact-info">
+                    <i class="fa-regular fa-envelope"></i>
+                    <p>BabaDeepSinghJiFinance1313@gmail.com</p>
+                </li>
+                <li class="contact-info">
+                    <i class="fa-solid fa-phone"></i>
+                    <p>9979384257</p>
+                </li>
+            </ul>
+
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+                <input type="hidden" name="access_key" value="6f204368-333a-4365-b57c-1e3d82ee0b51">
+                <input type="text" name="name" placeholder="Your name" class="form-input" required />
+                <input type="number" name="phone" placeholder="Your Number" class="form-input" />
+                <input type="email" name="email" placeholder="Your email" class="form-input" required />
+                <textarea name="message" placeholder="Your message" class="form-input" required></textarea>
+                <div class="submit-button-container">
+                    <button type="submit" class="button submit-button">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="section-content">
+            <p class="copyright-text">&copy; Baba Deep SinghJi Finance Corporation</p>
+            <div class="social-link-list">
+                <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://wa.me/919979384257" class="social-link" target="_blank">
+                      <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                
+            </div>
+            <p class="dev-name"> Made by Shivam Panchal</p>
+        </div>
+    </footer>
+</main>
+
+<!-- Linking Swiper script -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Linking custom script -->
+<script src="../script.js"></script>
+
+</body>
+</html>

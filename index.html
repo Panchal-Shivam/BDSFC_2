@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BDSFC | Loan Assistance</title>
+    <!-- Linking Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <!-- Linking Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+    <style>
+.hero-section {
+  min-height: 100vh;
+  padding-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00355f;
+}
+
+
+.hero-section .section-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  padding: 20px;
+  gap: 20px;
+}
+
+/* Text content styling */
+.hero-details {
+  flex: 1;
+  color: var(--white-color);
+}
+
+.hero-details .title {
+  font-size: var(--font-size-xxl);
+  color: var(--secondary-color);
+}
+
+.hero-details .subtitle,
+.hero-details .description {
+  margin: 15px 0;
+}
+
+.hero-details .buttons {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.hero-details .button {
+  padding: 10px 20px;
+  color: var(--white-color);
+  background-color: var(--secondary-color);
+  border-radius: var(--border-radius-m);
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.hero-details .button:hover {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+}
+
+
+.hero-image-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  overflow: hidden; 
+}
+
+.hero-image-wrapper img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain; 
+  padding: 0 10px; 
+}
+
+
+
+@media (max-width: 1024px) {
+ 
+  .hero-section .section-content {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .hero-image-wrapper {
+    margin-bottom: 20px;
+  }
+
+  .hero-details .buttons {
+    justify-content: center;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+
+
+
+    <!-- Header / Navbar -->
+<!-- Header / Navbar -->
+<header>
+  <nav class="navbar">
+    <a href="#" class="nav-logo">
+      <h2 class="logo-text">BDSFC</h2>
+      <p class="comp-name">Baba Deep SinghJi Finance Corporation</p>
+    </a>
+
+    <ul class="nav-menu">
+      <button id="menu-close-button" class="fas fa-times"></button>
+
+      <li class="nav-item">
+        <a href="#home" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item">
+        <a href="#about" class="nav-link">About</a>
+      </li>
+      <li class="nav-item">
+        <a href="#service" class="nav-link">Services</a>
+      </li>
+
+      <li class="nav-item-dropdown" id="resources-dropdown">
+        <a href="" class="nav-link dropdown-toggle">Resources</a>
+        <div class="dropdown-content">
+          <a href="blogs-page.html">Blogs</a>
+          <a href="emi-calculator.html">Calculator</a>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a href="#testimonials" class="nav-link">Testimonials</a>
+      </li>
+      <li class="nav-item">
+        <a href="#contact" class="nav-link">Contact</a>
+      </li>
+    </ul>
+
+    <button id="menu-open-button" class="fas fa-bars"></button>
+  </nav>
+</header>
+
+    <main>
+      <!-- Hero section -->
+  <section id="home" class="hero-section">
+    <div class="section-content">
+      <div class="hero-details">
+        <h2 class="title">Your Trusted Partner in Securing Loans!</h2>
+        <h3 class="subtitle">We connect you with the best loan offers from top banks, regardless of your credit history.</h3>
+        <p class="description">Get customized loan solutions, even with low CIBIL scores, all with zero hidden fees!</p>
+
+        <div class="buttons">
+          <a href="#contact" class="button order-now" id="call-button"> Call</a>
+          <a href="#contact" class="button contact-us" id="email-button"> Email</a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <img src="assets\hero-section-img.png" alt="" class="hero-image" />
+      </div>
+    </div>
+  </section>
+
+
+
+      <!-- About section -->
+      <section class="about-section" id="about">
+        <div class="section-content">
+            <div class="about-details">
+                <h2 class="section-title">About Us</h2>
+                
+                <div class="about-content">
+                    <h3>What We Do:</h3>
+                    <p>We simplify your financial journey. As your trusted financial advisors, we connect you with the best loan and insurance solutions. Whether you need a personal loan, home loan, business loan, or insurance coverage, we'll find the right product to suit your needs. We specialize in helping individuals with diverse financial profiles, including those with low credit scores or informal income.</p>
+                </div>
+                <div class="about-content">
+                  <h3>Our Vision:</h3>
+                  <p>To be your trusted financial guide, simplifying complex financial processes and empowering you to make informed decisions. We strive to build long-lasting relationships with our clients, providing personalized solutions and exceptional service.</p>
+                  
+                  <!-- Founders Info in One Line -->
+                  <p style="margin-top: 30px;"><strong>Our Founders:</strong> Avneet Saini & [Co-Founder Name] (Combined Exp. 4+ years)</p>
+                </div>
+                
+                <div class="social-link-list">
+                    <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://wa.me/919979384257" class="social-link" target="_blank">
+                      <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+
+      <!-- Services Section -->
+      <section class="service-cards-section" id="service">
+        <h2 class="text-center mb-4">Our Loan and Financial Assistance Services</h2>
+        <div class="card-container">
+            <!-- Home Loan Card -->
+            <a href="Services\home-loan.html" class="service-card" target="_blank">
+                <h3>Home Loan Assistance</h3>
+                <p>Secure your dream home with our Home Loan solutions, offering competitive rates and flexible options.</p>
+            </a>
+    
+            <!-- Business Loan Card -->
+            <a href="Services\business-loan.html" class="service-card" target="_blank">
+                <h3>Business Loan Assistance</h3>
+                <p>Empower your business with tailored financial solutions to fuel growth and success.</p>
+            </a>
+    
+            <!-- Personal Loan Card -->
+            <a href="Services\personal-loan.html" class="service-card" target="_blank">
+                <h3>Personal Loan Assistance</h3>
+                <p>Manage personal expenses with customized loans suited to your unique needs and financial goals.</p>
+            </a>
+    
+            <!-- Car Loan Card -->
+            <a href="Services\car-loan.html" class="service-card" target="_blank">
+                <h3>Used and New Car Loan Assistance</h3>
+                <p>Find financing options for your ideal vehicle, whether new or used, at affordable rates.</p>
+            </a>
+    
+            <!-- Industrial Funding Card -->
+            <a href="Services\industrial-funding.html" class="service-card" target="_blank">
+                <h3>Industrial Funding Assistance</h3>
+                <p>Expand and modernize your factory with funding solutions that support large-scale industrial growth.</p>
+            </a>
+    
+            <!-- Mortgage Loan Card -->
+            <a href="Services\mortgage-loan.html" class="service-card"  target="_blank">
+                <h3>Mortgage Loan Assistance</h3>
+                <p>Unlock your property’s potential with affordable mortgage loans for various financial needs.</p>
+            </a>
+    
+            <!-- Open Plot Funding Card -->
+            <a href="Services\open-plot-funding.html" class="service-card" target="_blank">
+                <h3>Open Plot Funding Assistance</h3>
+                <p>Finance your open plot purchase or development with flexible and affordable funding solutions.</p>
+            </a>
+    
+            <!-- Working Capital Loan Card -->
+            <a href="Services\working-capital-loan.html" class="service-card" target="_blank">
+                <h3>Working Capital Loan Assistance</h3>
+                <p>Maintain smooth business operations and seize opportunities with our working capital solutions.</p>
+            </a>
+    
+            <!-- Balance Transfer and Top-Up Loan Card -->
+            <a href="Services\bt-top-up.html" class="service-card" target="_blank">
+                <h3>Balance Transfer and Top-Up Loan Assistance</h3>
+                <p>Consolidate loans or access additional funds with ease, keeping your finances organized.</p>
+            </a>
+    
+            <!-- Insurance Card -->
+            <a href="Services\insurance.html" class="service-card" target="_blank">
+                <h3>Insurance Assistance</h3>
+                <p>Protect what matters with customized life, travel, and health insurance solutions.</p>
+            </a>
+
+            <a href="Services\education-loan.html" class="service-card" target="_blank">
+              <h3>Education Loan Assistance</h3>
+              <p>Empower your education with financing options for tuition, study materials, and more.</p>
+          </a>
+
+          <a href="Services\gold-loan.html" class="service-card" target="_blank">
+            <h3>Gold Loan Assistance</h3>
+              <p>Unlock the value of your gold with flexible loan options to meet your immediate needs.</p>
+        </a>
+
+        </div>
+    </section>
+    
+    
+      <!-- Testimonials section -->
+     <section class="testimonials-section" id="testimonials">
+  <h2 class="section-title">Testimonials</h2>
+  <div class="section-content">
+    <div class="slider-container swiper">
+      <div class="slider-wrapper">
+        <ul class="testimonials-list swiper-wrapper">
+          <li class="testimonial swiper-slide">
+            <img src="assets/t1.jpg" alt="Ritesh Mehta" class="user-image" />
+            <h3 class="name">Ritesh Mehta</h3>
+            <h4 class="name">Home Loan (Builder Purchase)</h4>
+            <i class="feedback">"I availed a home loan (builder purchase) from BDSFC, and they delivered the committed best rate of interest with fast sanctioning in just 4 days."</i>
+          </li>
+          <li class="testimonial swiper-slide">
+            <img src="assets/t2.jpg" alt="Mitesh Patel" class="user-image" />
+            <h3 class="name">Mitesh Patel</h3>
+            <h4 class="name">Commercial Shop Purchase Loan</h4>
+            <i class="feedback">"I availed a commercial shop purchase loan from BDSFC for my second retail outlet. The process was very easy, and I got the funds in just 6 days."</i>
+          </li>
+          <li class="testimonial swiper-slide">
+            <img src="assets/t3.jpg" alt="Vijay Thakkar" class="user-image" />
+            <h3 class="name">Vijay Thakkar</h3>
+            <h4 class="name">Industrial Overdraft</h4>
+            <i class="feedback">"I availed an industrial overdraft from BDSFC to fulfill my business needs. I received the maximum finance on my property in just 5 days."</i>
+          </li>
+          <li class="testimonial swiper-slide">
+            <img src="assets/t4.jpg" alt="Abhay Rathod" class="user-image" />
+            <h3 class="name">Abhay Kumar</h3>
+            <h4 class="name">Home Loan (Builder Purchase)</h4>
+            <i class="feedback">"I availed a home loan (builder purchase) of ₹80 lakhs from BDSFC. They delivered an interest rate of 8.60% with loan disbursement in just 7 days."</i>
+          </li>
+        </ul>
+
+        <div class="swiper-pagination"></div>
+        <div class="swiper-slide-button swiper-button-prev"></div>
+        <div class="swiper-slide-button swiper-button-next"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <!-- Gallery section -->
+      <!-- <section class="gallery-section" id="gallery">
+        <h2 class="section-title">Gallery</h2>
+        <div class="section-content">
+         <ul class="gallery-list">
+            <li class="gallery-item">
+              <img src="images/gallery-1.jpg" alt="Gallery Image" class="gallery-image" />
+            </li>
+            <li class="gallery-item">
+              <img src="images/gallery-2.jpg" alt="Gallery Image" class="gallery-image" />
+            </li>
+            <li class="gallery-item">
+              <img src="images/gallery-3.jpg" alt="Gallery Image" class="gallery-image" />
+            </li>
+            <li class="gallery-item">
+              <img src="images/gallery-4.jpg" alt="Gallery Image" class="gallery-image" />
+            </li>
+            <li class="gallery-item">
+              <img src="images/gallery-5.jpg" alt="Gallery Image" class="gallery-image" />
+            </li>
+            <li class="gallery-item">
+              <img src="images/gallery-6.jpg" alt="Gallery Image" class="gallery-image" />
+            </li>
+          </ul>
+        </div>
+      </section> -->
+
+      <!-- Contact section -->
+      <section class="contact-section" id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="section-content">
+          <ul class="contact-info-list">
+            <li class="contact-info">
+              <i class="fa-solid fa-location-crosshairs"></i>
+              <p>123 Campsite Avenue, Wilderness, CA 98765</p>
+            </li>
+            <li class="contact-info">
+              <i class="fa-regular fa-envelope"></i>
+              <p>BabaDeepSinghJiFinance1313@gmail.com</p>
+            </li>
+            <li class="contact-info">
+              <i class="fa-solid fa-phone"></i>
+              <p>9979384257</p>
+            </li>
+          </ul>
+
+          <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+
+            <!-- Hidden input for access key -->
+            <input type="hidden" name="access_key" value="6f204368-333a-4365-b57c-1e3d82ee0b51">
+        
+            <!-- Name field with name attribute -->
+            <input type="text" name="name" placeholder="Your name" class="form-input" required />
+        
+            <!-- Number field with name attribute -->
+            <input type="number" name="phone" placeholder="Your Number" class="form-input"/>
+        
+            <!-- Email field with name attribute -->
+            <input type="email" name="email" placeholder="Your email" class="form-input" required />
+        
+            <!-- Message field with name attribute -->
+            <textarea name="message" placeholder="Your message" class="form-input" required></textarea>
+        
+            <!-- Submit button -->
+            <div class="submit-button-container">
+                <button type="submit" class="button submit-button">Submit</button>
+            </div>
+        
+        </form>
+        
+        </div>
+      </section>
+
+      <!-- Footer section -->
+      <footer class="footer-section">
+        <div class="section-content">
+          <p class="copyright-text">&copy; Baba Deep SinghJi Finance Corporation</p>
+
+          <div class="social-link-list">
+            <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://wa.me/919979384257" class="social-link" target="_blank">
+                      <i class="fa-brands fa-whatsapp"></i>
+           </a>
+          </div>
+
+          <p class="dev-name">Made by Shivam Panchal</p>
+
+        </div>
+      </footer>
+    </main>
+
+    <!-- Linking Swiper script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Linking custom script -->
+    <script src="script.js"></script>
+
+
+  </body>
+</html>

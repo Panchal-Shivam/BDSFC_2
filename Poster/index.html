@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BDSFC - Coming Soon</title>
+    <style>
+        /* Base Styling */
+        body, html {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            overflow: hidden;
+        }
+
+        /* Container Styling */
+        .container {
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+            width: 90%;
+            max-width: 500px;
+            background-color: #00355f;
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+            animation: expandEffect 1.5s ease-out; /* Expand effect */
+        }
+
+        /* Logo Styling */
+        .logo {
+            width: 70px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        /* Title Styling */
+        h1 {
+            font-size: 2em;
+            margin: 0;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #ffe66d;
+        }
+
+        /* Subtitle Styling */
+        .subtext {
+            font-size: 1.2em;
+            margin-top: 10px;
+            color: #f0f8ff;
+        }
+
+        /* Expand Animation Keyframes */
+        @keyframes expandEffect {
+            0% {
+                transform: scale(0.5); /* Start smaller */
+                opacity: 0;
+            }
+            60% {
+                transform: scale(1.05); /* Slight overshoot for a smooth feel */
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1); /* Settle to normal size */
+            }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+                letter-spacing: 1.5px;
+            }
+
+            .subtext {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="Sikh.jpg" alt="BDSFC Logo" class="logo">
+        <h1>BDSFC</h1>
+        <p class="subtext">BABA DEEP SINGHJI FINANCE CORPORATION</p>
+        <p class="subtext">We're launching soon. Stay tuned for more updates!</p>
+    </div>
+</body>
+</html>
